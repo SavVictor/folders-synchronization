@@ -15,6 +15,10 @@ def sync_folders(source, replica, log_file):
     
     """
     
+    # create replica folder if it doesn't exist
+    if not os.path.exists(replica):
+        os.mkdir(replica)
+    
     # synchronize files
     for root, dirs, files in os.walk(source):
         for file in files:
